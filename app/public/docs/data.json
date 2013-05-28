@@ -117,8 +117,8 @@
                 },
                 {
                     "name": "verse",
-                    "description": "A valid verse in the specified chapter.",
-                    "type": "Number"
+                    "description": "Number or range of numbers within the chapter. A range is signified by a number followed by minus sign and then another number.",
+                    "type": "Number|Range"
                 }
             ],
             "return": {
@@ -127,7 +127,7 @@
             },
             "example": [
                 "\n\thttp://noblecall.orthlieb.com/api/bible-quote/quote.json?version=gnt&book=john&chapter=3&verse=16",
-                " \n{\n\t\"version\": \"gnt\",\n\t\"book\": \"john\",\n\t\"chapter\": \"3\",\n\t\"verse\": \"16\",\n\t\"text\": \"For God loved the world so much that he gave his only Son, so that everyone who believes in him may not die but have eternal life. \"\n}\t\t"
+                " \n\t{\n\t\t\"version\": \"gnt\",\n\t\t\"book\": \"john\",\n\t\t\"chapter\": \"3\",\n\t\t\"verse\": \"16\",\n\t\t\"text\": \"For God loved the world so much that he gave his only Son, so that everyone who believes in him may not die but have eternal life. \"\n\t}\t\t"
             ],
             "class": "bible-quote"
         },

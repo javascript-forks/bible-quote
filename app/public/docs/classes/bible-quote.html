@@ -303,13 +303,13 @@ It offers REST-based APIs for looking up Bible passages.</p>
                 <li class="param">
                     
                         <code class="param-name">verse</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> | Range</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>A valid verse in the specified chapter.</p>
+                        <p>Number or range of numbers within the chapter. A range is signified by a number followed by minus sign and then another number.</p>
                     </div>
 
                     
@@ -340,13 +340,14 @@ It offers REST-based APIs for looking up Bible passages.</p>
 
             <div class="example-content">
                 <pre class="code prettyprint"><code>http://noblecall.orthlieb.com/api/bible-quote/quote.json?version=gnt&amp;book=john&amp;chapter=3&amp;verse=16
-</code></pre><p>{
+</code></pre><pre class="code prettyprint"><code>{
     "version": "gnt",
     "book": "john",
     "chapter": "3",
     "verse": "16",
     "text": "For God loved the world so much that he gave his only Son, so that everyone who believes in him may not die but have eternal life. "
-}        </p>
+}       
+</code></pre>
             </div>
         </div>
     

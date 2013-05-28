@@ -84,18 +84,18 @@ exports.remote = [
 		@param version {String} One of the Bible ids listed in the {{#crossLink "bible-quote/versions.json:method"}}{{/crossLink}} call.
 		@param book {String} A valid book of the Bible.
 		@param chapter {Number} A valid chapter in the specified book.
-		@param verse {Number} A valid verse in the specified chapter.
+		@param verse {Number|Range} Number or range of numbers within the chapter. A range is signified by a number followed by minus sign and then another number.
 		@return {Object} JSON object containing the requested quote.
 		@example
 			http://noblecall.orthlieb.com/api/bible-quote/quote.json?version=gnt&book=john&chapter=3&verse=16
 		@example 
-		{
-			"version": "gnt",
-			"book": "john",
-			"chapter": "3",
-			"verse": "16",
-			"text": "For God loved the world so much that he gave his only Son, so that everyone who believes in him may not die but have eternal life. "
-		}		
+			{
+				"version": "gnt",
+				"book": "john",
+				"chapter": "3",
+				"verse": "16",
+				"text": "For God loved the world so much that he gave his only Son, so that everyone who believes in him may not die but have eternal life. "
+			}		
 		**/
 		handler: function (req, res) {
 			console.log('GET QUOTE: ' + JSON.stringify(req.query));
