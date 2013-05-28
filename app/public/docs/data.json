@@ -1,0 +1,228 @@
+{
+    "project": {
+        "name": "The Bible Quote API",
+        "description": "The Bible Quote API brokers bible passage lookups among several services including Biblia.com, Bible Search, ESV Bible Web Service, and Bible.org to provide a one stop service for multiple Bible versions.",
+        "logo": "../images/BQDocLogo.png",
+        "version": "1.2",
+        "url": "http://noblecall.orthlieb.com/api"
+    },
+    "files": {
+        "server/api/bq.js": {
+            "name": "server/api/bq.js",
+            "modules": {},
+            "classes": {
+                "bible-quote": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "server/api/reflect.js": {
+            "name": "server/api/reflect.js",
+            "modules": {},
+            "classes": {
+                "reflect": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "bible-quote": {
+            "name": "bible-quote",
+            "shortname": "bible-quote",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "server/api/bq.js",
+            "line": 9,
+            "description": "The Bible API Aggregate Web Service brings together a number of Bible APIs on the web to offer a comprehensive set of Bibles to quote from. \nIt offers REST-based APIs for looking up Bible passages.\n\nMany thanks to the following services: [Biblia.com](http://api.biblia.com/docs/), [Bible Search](http://bibles.org/pages/api), [ESV Bible Web Service](http://www.esvapi.org/api), and [Bible.org](https://labs.bible.org/api_web_service)"
+        },
+        "reflect": {
+            "name": "reflect",
+            "shortname": "reflect",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "server/api/reflect.js",
+            "line": 4,
+            "description": "Reflection class for testing purposes."
+        }
+    },
+    "classitems": [
+        {
+            "file": "server/api/bq.js",
+            "line": 21,
+            "description": "BibleQuote Handler for HTTP GET version.json.",
+            "itemtype": "method",
+            "name": "version.json",
+            "params": [
+                {
+                    "name": "version",
+                    "description": "One of the Bible ids listed in the {{#crossLink \"bible-quote/versions.json:method\"}}{{/crossLink}} call.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "JSON object describing the requested Bible version including id, title, copyright, and description.",
+                "type": "Object"
+            },
+            "example": [
+                "\n\thttp://noblecall.orthlieb.com/api/bible-quote/version.json/?version=esv",
+                " \n\t{\n\t\tid: \"esv\",\n\t\ttitle: \"English Standard Version\",\n\t\tcopyright: \"Copyright 2001 by Crossway, a publishing ministry of Good News Publishers.\",\n\t\tdescription: \"The ESV Bible (English Standard Version) is an “essentially literal” translation of the Bible in contemporary English. The ESV Bible emphasizes “word-for-word” accuracy, literary excellence, and depth of meaning.\"\n\t}"
+            ],
+            "class": "bible-quote"
+        },
+        {
+            "file": "server/api/bq.js",
+            "line": 50,
+            "description": "BibleQuote Handler for HTTP GET versions.json.",
+            "itemtype": "method",
+            "name": "versions.json",
+            "return": {
+                "description": "JSON object containing key value pairs, one for each Bible supported by the API. Each value is an object describing the requested Bible version including id, title, copyright, and description.",
+                "type": "Object"
+            },
+            "example": [
+                "\n\thttp://noblecall.orthlieb.com/api/bible-quote/versions.json",
+                " \n\t{\n\t\t\"asv\": {\n\t\t\t\"id\": \"asv\",\n\t\t\t\"title\": \"American Standard Version\",\n\t\t\t\"copyright\": \"Public Domain\",\n\t\t\t\"description\": \"The ASV has long been regarded by many scholars as the most literal English translation since the King James Version—maybe the most literal translation ever. This has made the translation very popular for careful English Bible study, but not for ease of reading. While the KJV was translated entirely from 'western manuscripts', the ASV 1901 was influenced also by the older 'eastern manuscripts' that form the basis for most of our modern English translations. Because the ASV 1901 is very difficult to find in print, Logos is pleased to be able to preserve and distribute this significant work. This is an excellent choice for comparative English study.\"\n\t\t}, \n\t\t\"amp\": { ... \n\t\t}, ...\n\t}"
+            ],
+            "class": "bible-quote"
+        },
+        {
+            "file": "server/api/bq.js",
+            "line": 80,
+            "description": "BibleQuote Handler for HTTP GET quote.json.",
+            "itemtype": "method",
+            "name": "quote.json",
+            "params": [
+                {
+                    "name": "version",
+                    "description": "One of the Bible ids listed in the {{#crossLink \"bible-quote/versions.json:method\"}}{{/crossLink}} call.",
+                    "type": "String"
+                },
+                {
+                    "name": "book",
+                    "description": "A valid book of the Bible.",
+                    "type": "String"
+                },
+                {
+                    "name": "chapter",
+                    "description": "A valid chapter in the specified book.",
+                    "type": "Number"
+                },
+                {
+                    "name": "verse",
+                    "description": "A valid verse in the specified chapter.",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "JSON object containing the requested quote.",
+                "type": "Object"
+            },
+            "example": [
+                "\n\thttp://noblecall.orthlieb.com/api/bible-quote/quote.json?version=gnt&book=john&chapter=3&verse=16",
+                " \n{\n\t\"version\": \"gnt\",\n\t\"book\": \"john\",\n\t\"chapter\": \"3\",\n\t\"verse\": \"16\",\n\t\"text\": \"For God loved the world so much that he gave his only Son, so that everyone who believes in him may not die but have eternal life. \"\n}\t\t"
+            ],
+            "class": "bible-quote"
+        },
+        {
+            "file": "server/api/reflect.js",
+            "line": 13,
+            "description": "Reflection handler for HTTP GET get.json.",
+            "itemtype": "method",
+            "name": "get.json",
+            "params": [
+                {
+                    "name": "various",
+                    "description": "Any number of parameters that will be reflected to the user.",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "JSON object containing the parameters passed in.",
+                "type": "Object"
+            },
+            "example": [
+                "\n\thttp://noblecall.orthlieb.com/api/reflect/get.json/?foo=bar&baz=quum",
+                " \n\t{\n\t\t\"foo\": \"bar\",\n\t\t\"baz\": \"quum\"\n\t}"
+            ],
+            "class": "reflect"
+        },
+        {
+            "file": "server/api/reflect.js",
+            "line": 34,
+            "description": "Reflection handler for HTTP PUT put.json.",
+            "itemtype": "method",
+            "name": "put.json",
+            "params": [
+                {
+                    "name": "body",
+                    "description": "Body can contain any valid JSON data.",
+                    "type": "Various"
+                }
+            ],
+            "return": {
+                "description": "JSON object containing the body passed in.",
+                "type": "Object"
+            },
+            "example": [
+                "\n\thttp://noblecall.orthlieb.com/api/reflect/put.json\n\tbody: {\n\t\t\"foo\": \"bar\",\n\t\t\"baz\": \"quum\"\n\t}",
+                " \n\t{\n\t\t\"foo\": \"bar\",\n\t\t\"baz\": \"quum\"\n\t}"
+            ],
+            "class": "reflect"
+        },
+        {
+            "file": "server/api/reflect.js",
+            "line": 59,
+            "description": "Reflection handler for HTTP POST post.json.",
+            "itemtype": "method",
+            "name": "post.json",
+            "params": [
+                {
+                    "name": "body",
+                    "description": "Body can contain any valid JSON data.",
+                    "type": "Various"
+                }
+            ],
+            "return": {
+                "description": "JSON object containing the body passed in.",
+                "type": "Object"
+            },
+            "example": [
+                "\n\thttp://noblecall.orthlieb.com/api/reflect/post.json\n\tbody: {\n\t\t\"foo\": \"bar\",\n\t\t\"baz\": \"quum\"\n\t}",
+                " \n\t{\n\t\t\"foo\": \"bar\",\n\t\t\"baz\": \"quum\"\n\t}"
+            ],
+            "class": "reflect"
+        },
+        {
+            "file": "server/api/reflect.js",
+            "line": 84,
+            "description": "Reflection handler for HTTP DELETE delete.json.",
+            "itemtype": "method",
+            "name": "delete.json",
+            "params": [
+                {
+                    "name": "various",
+                    "description": "Any number of parameters that will be reflected to the user.",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "JSON object containing the parameters passed in.",
+                "type": "Object"
+            },
+            "example": [
+                "\n\thttp://noblecall.orthlieb.com/api/reflect/delete.json/?foo=bar&baz=quum",
+                " \n\t{\n\t\t\"foo\": \"bar\",\n\t\t\"baz\": \"quum\"\n\t}"
+            ],
+            "class": "reflect"
+        }
+    ],
+    "warnings": []
+}

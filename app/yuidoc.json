@@ -1,0 +1,12 @@
+{
+    "name": "The Bible Quote API",
+    "description": "The Bible Quote API brokers bible passage lookups among several services including Biblia.com, Bible Search, ESV Bible Web Service, and Bible.org to provide a one stop service for multiple Bible versions.",
+  	"logo": "../images/BQDocLogo.png",
+    "version": "1.2",
+    "url": "http://noblecall.orthlieb.com/api",
+    "options": {
+        "linkNatives": "true",	
+        "tabtospace": 4,
+        "outdir": "./public/docs"
+    }
+}
