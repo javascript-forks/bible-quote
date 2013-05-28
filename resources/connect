@@ -1,3 +1,0 @@
-#!/bin/bash
-ssh -i NobleCallKey.pem \
-ec2-user@ec2-54-214-111-18.us-west-2.compute.amazonaws.com

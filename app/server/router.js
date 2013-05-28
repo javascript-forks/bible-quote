@@ -26,8 +26,8 @@ module.exports = function(app) {
 	}		
 
 	app.get('/', function(req, res) {
-		console.log("GET / {" + JSON.stringify(req.param) + "}");
+		console.log("GET / {" + JSON.stringify(req.param) + "}");//
 		var bibles = require('./lib/bibles');
-		res.render('index', { bibles: bibles });
+		res.redirect('./docs/classes/bible-quote.html');
 	});
 };
