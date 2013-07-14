@@ -50,6 +50,11 @@ var __strings = {
         copyright: "Public Domain",
         desc: "Also known as the 'Authorized Version', The King James Version of the Bible is still the most widely used text in the English language. The Logos KJV includes the Strong's Numbers which allow English readers to identify and search for underlying Greek and Hebrew words in the original text.",
     },
+    msg: {
+    	name: "The Message",
+    	copyright: "Scripture taken from The Message. Copyright © 1993, 1994, 1995, 1996, 2000, 2001, 2002. Used by permission of NavPress Publishing Group.",
+    	desc: "The goal of The Message is to engage people in the reading process and help them understand what they read. This is not a study Bible, but rather 'a reading Bible.' The verse numbers, which are not in the original documents, have been left out of the print version to facilitate easy and enjoyable reading. The original books of the Bible were not written in formal language. The Message tries to recapture the Word in the words we use today."
+	},
     net: { 
         name: "The NET Bible",
         copyright: "Copyright 1996-2006 by Biblical Studies Press, L.L.C.",
