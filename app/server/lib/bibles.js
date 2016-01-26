@@ -5,21 +5,25 @@ var biblesOrgHandler = {
 	auth: "WPZkEQvpI9RaxRmMC0gXn5XNA4Xgfomnv7rjAYCc",
 	stripper: 
 		function (phrase) {
-			// The bibles.org API returns a CDATA encapsulated string with superscripts and spans
-			phrase = JSON.parse(phrase);
-			phrase = phrase.response.search.result.passages[0].text;   // Burrow through the object.
+            try {
+    			// The bibles.org API returns a CDATA encapsulated string with superscripts and spans
+    			phrase = JSON.parse(phrase);
+    			phrase = phrase.response.search.result.passages[0].text;   // Burrow through the object.
 
-			// Strip the paragraph tags
-			phrase = phrase.replace(/<\/*p.*?>/g, "");
-			// Strip the superscripts
-			phrase = phrase.replace(/<sup .*?>.*?<\/sup>/g, "");
-			// Strip the span tags
-			phrase = phrase.replace(/<\/*span.*?>/g, "");
-			// Strip out any list tags
-			phrase = phrase.replace(/<\/*ul.*?>/g, "");
-			phrase = phrase.replace(/<\/*li.*?>/g, "");
-			// Strip out any header tags.
-			phrase = phrase.replace(/<\/*h3.*?>/g, "");
+    			// Strip the paragraph tags
+    			phrase = phrase.replace(/<\/*p.*?>/g, "");
+    			// Strip the superscripts
+    			phrase = phrase.replace(/<sup .*?>.*?<\/sup>/g, "");
+    			// Strip the span tags
+    			phrase = phrase.replace(/<\/*span.*?>/g, "");
+    			// Strip out any list tags
+    			phrase = phrase.replace(/<\/*ul.*?>/g, "");
+    			phrase = phrase.replace(/<\/*li.*?>/g, "");
+    			// Strip out any header tags.
+    			phrase = phrase.replace(/<\/*h3.*?>/g, "");
+            } catch (e) {
+                phrase = "An error has occurred: " + e.message;
+            }
 	
 			return phrase;
 		}
