@@ -30,4 +30,4 @@ app.use(function(err, req, res, next) {
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log("BibleQuote server listening on port " + app.get('port'));
-})
+});
